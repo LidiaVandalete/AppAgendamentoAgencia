@@ -37,5 +37,5 @@ function tratarResposta(res){
 
 function fazerLogin(res){
     localStorage.setItem("userLogged", JSON.stringify(res)); //cria uma variavel local para armazenar os dados do usuario que fez login
-    window.location = "relatorio.html";
+    window.location = "relatorio2.html";
 }

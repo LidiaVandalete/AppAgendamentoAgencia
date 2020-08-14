@@ -1,11 +1,16 @@
 package br.gama.projagenda.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="itmn032_agencia")
@@ -24,6 +29,11 @@ public class Agencia {
     
     @Column(name="hora_fim")
     private int hora_fim;
+
+    @OneToMany(mappedBy = "agencia")
+    @JsonIgnoreProperties("agencia")
+    private List<Agendamento> agendamentos;
+
 
     public int getId() {
         return id;
@@ -55,6 +65,14 @@ public class Agencia {
 
     public void setHora_fim(int hora_fim) {
         this.hora_fim = hora_fim;
+    }
+
+    public List<Agendamento> getAgendamentos() {
+        return agendamentos;
+    }
+
+    public void setAgendamentos(List<Agendamento> agendamentos) {
+        this.agendamentos = agendamentos;
     }
 
     
